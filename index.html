@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Julliana</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Icons & AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="nav-container">
+      <div class="logo"><span>Julliana</span></div>
+
+      <div class="links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="selling.html" class="nav-link">Selling Week</a>
+        <a href="certificates.html" class="nav-link">Seminars & Certificates</a>
+      </div>
+
+      <!-- Hamburger -->
+      <i class="fa-solid fa-bars hamburg" aria-label="Open menu"></i>
+    </div>
+
+    <!-- Dropdown -->
+    <div class="dropdown" aria-hidden="true">
+      <i class="fa-solid fa-xmark cancel" aria-label="Close menu"></i>
+      <a href="index.html" class="drop-link">Home</a>
+      <a href="selling.html" class="drop-link">Selling Week</a>
+      <a href="certificates.html" class="drop-link">Seminars & Certificates</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-container">
+        <div class="hero-img" data-aos="fade-right" data-aos-duration="1000">
+          <img src="images/profile.jpg" alt="Portrait of Julliana" />
+        </div>
+
+        <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
+          <h1>Hi, I’m <span>Julliana Marie J. Intia</span></h1>
+          <div class="subtitle type-rotate">
+            <span class="dot"></span>
+            <span class="rotate" aria-live="polite"></span>
+          </div>
+
+          <p>
+            A 4th-year Bachelor of Science in Business Administration major in Marketing Management student at Our Lady of Fatima University.
+            Currently completing On-the-Job Training, I am eager to apply my academic knowledge and develop practical skills in marketing,
+            business operations, and customer relations.  I am highly motivated, adaptable, and committed to continuous learning, with the ability to work effectively both independently and as part of a team.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:jullianamarie21@gmail.com"><i class="fa-solid fa-envelope"></i> jullianamarie21@gmail.com</a>
+            <a href="tel:+639517869257"><i class="fa-solid fa-phone"></i> 09517869257</a>
+          </div>
+
+          <div class="btn-group">
+            <a href="certificates.html" class="btn btn-outline">View Certificates</a>
+            <a href="images/resume.jpg" download class="btn btn-solid"><i class="fa-solid fa-download"></i> Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // AOS
+      AOS.init({ offset: 0 });
+
+      // Elements
+      const body = document.body;
+      const menuToggle = document.querySelector('.hamburg');
+      const menuClose  = document.querySelector('.cancel');
+      const dropdown   = document.querySelector('.dropdown');
+      const dropLinks  = dropdown.querySelectorAll('.drop-link');
+
+      // Helpers
+      const openMenu = () => {
+        dropdown.classList.add('active');
+        dropdown.setAttribute('aria-hidden', 'false');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        body.classList.add('no-scroll');
+      };
+
+      const closeMenu = () => {
+        dropdown.classList.remove('active');
+        dropdown.setAttribute('aria-hidden', 'true');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        body.classList.remove('no-scroll');
+      };
+
+      // Events
+      menuToggle.addEventListener('click', openMenu);
+      menuClose.addEventListener('click', closeMenu);
+
+      // Close when clicking any link
+      dropLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+      // Close with ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && dropdown.classList.contains('active')) closeMenu();
+      });
+    });
+
+    // Simple rotating subtitle
+    document.addEventListener('DOMContentLoaded', () => {
+      const el = document.querySelector('.rotate');
+      const words = [
+        'Sales and customer service',
+        'Time Management',
+        'Communication Skills',
+        'Teamwork',
+        'Social Media Management'
+      ];
+      let i = 0;
+      const update = () => {
+        el.textContent = words[i % words.length];
+        i++;
+      };
+      update();
+      setInterval(update, 2200);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Selling Week</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="nav-container">
+      <div class="logo"><span>Julliana</span></div>
+
+      <div class="links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="selling.html" class="nav-link active">Selling Week</a>
+        <a href="certificates.html" class="nav-link">Seminars & Certificates</a>
+      </div>
+
+      <!-- Hamburger -->
+      <i class="fa-solid fa-bars hamburg" aria-label="Open menu"></i>
+    </div>
+
+    <!-- Dropdown -->
+    <div class="dropdown" aria-hidden="true">
+      <i class="fa-solid fa-xmark cancel" aria-label="Close menu"></i>
+      <a href="index.html" class="drop-link">Home</a>
+      <a href="selling.html" class="drop-link active">Selling Week</a>
+      <a href="certificates.html" class="drop-link">Seminars & Certificates</a>
+    </div>
+  </nav>
+
+  <!-- Selling Week Section -->
+  <section id="selling" class="selling-section">
+    <div class="container" data-aos="fade-up" data-aos-duration="1000">
+      <h2 class="section-title" data-aos="zoom-in" data-aos-duration="1000">
+        Selling Week
+      </h2>
+
+      <div class="selling-content">
+        <h3>The Cozy Corner</h3>
+        <h4>Category: Dessert</h4>
+        <p>
+          The Cozy Corner specializes in Croffles, a creative blend of waffles, fresh fruits, syrup, and toppings. One of the key highlights of our Croffles is the diverse range of flavors available. Whether you're a fan of the sweet and indulgent flavor or prefer the savory and fresh fruits, we have Croffles tailored to your preferences.
+        </p>
+      
+      </div>
+
+      <!-- Photo Gallery -->
+      <div class="selling-gallery" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+        <div class="gallery-item">
+          <img src="images/sw.png" alt="Selling Showcase 1" onclick="openLightbox(this)">
+        </div>
+      </div>
+
+      <!-- Lightbox -->
+      <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img id="lightbox-img" src="" alt="Full View">
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init({ offset: 0 });
+
+      const body = document.body;
+      const menuToggle = document.querySelector(".hamburg");
+      const menuClose = document.querySelector(".cancel");
+      const dropdown = document.querySelector(".dropdown");
+      const dropLinks = dropdown.querySelectorAll(".drop-link");
+
+      const openMenu = () => {
+        dropdown.classList.add("active");
+        body.classList.add("no-scroll");
+      };
+
+      const closeMenu = () => {
+        dropdown.classList.remove("active");
+        body.classList.remove("no-scroll");
+      };
+
+      menuToggle.addEventListener("click", openMenu);
+      menuClose.addEventListener("click", closeMenu);
+      dropLinks.forEach((link) => link.addEventListener("click", closeMenu));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && dropdown.classList.contains("active"))
+          closeMenu();
+      });
+    });
+
+    // Lightbox
+    function openLightbox(img) {
+      document.getElementById("lightbox").style.display = "flex";
+      document.getElementById("lightbox-img").src = img.src;
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+</body>
+</html>

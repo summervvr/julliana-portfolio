@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Certificates</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="nav-container">
+      <div class="logo"><span>Julliana</span></div>
+
+      <div class="links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="selling.html" class="nav-link">Selling Week</a>
+        <a href="certificates.html" class="nav-link active">Seminars & Certificates</a>
+      </div>
+
+      <!-- Hamburger -->
+      <i class="fa-solid fa-bars hamburg" aria-label="Open menu"></i>
+    </div>
+
+    <!-- Dropdown -->
+    <div class="dropdown" aria-hidden="true">
+      <i class="fa-solid fa-xmark cancel" aria-label="Close menu"></i>
+      <a href="index.html" class="drop-link">Home</a>
+      <a href="acad.html" class="drop-link">Academic Achievements</a>
+      <a href="shopfest.html" class="drop-link">Shopfest 2025</a>
+      <a href="selling.html" class="drop-link">Selling Week</a>
+      <a href="certificates.html" class="drop-link active">Seminars & Certificates</a>
+    </div>
+  </nav>
+
+  <!-- Certificates Section -->
+  <section class="certificates-section">
+    <h1 class="section-title" data-aos="fade-down" data-aos-duration="1000">
+      <span>Seminars & Certifications</span>
+    </h1>
+
+    <!-- Go Negosyo -->
+    <div class="acad-block" data-aos="fade-up" data-aos-duration="1000">
+      <h2>Volunteered in Go Negosyo Program (2025)</h2>
+      <div class="acad-photos">
+        <img src="images/1.jpg" alt="Go Negosyo 1" onclick="openLightbox(this)">
+        <img src="images/2.jpg" alt="Go Negosyo 2" onclick="openLightbox(this)">
+        <img src="images/3.jpg" alt="Go Negosyo 3" onclick="openLightbox(this)">
+      </div>
+    </div>
+
+    <!-- VMDC -->
+    <div class="acad-block" data-aos="fade-up" data-aos-duration="1000">
+      <h2>Visual Merchandising Design Competition – Collaborated with Straight Forward (2025)</h2>
+      <div class="acad-photos">
+        <img src="images/4.jpg" alt="VMDC 1" onclick="openLightbox(this)">
+        <img src="images/5.jpg" alt="VMDC 2" onclick="openLightbox(this)">
+        <img src="images/6.jpg" alt="VMDC 3" onclick="openLightbox(this)">
+    
+      </div>
+    </div>
+
+    <!-- PFA -->
+    <div class="acad-block" data-aos="fade-up" data-aos-duration="1000">
+      <h2>Philippine Franchise Association: Introduction to Franchising (2024)</h2>
+      <div class="acad-photos">
+        <img src="images/7.jpg" alt="Franchise 1" onclick="openLightbox(this)">
+        <img src="images/8.jpg" alt="Franchise 2" onclick="openLightbox(this)">
+      </div>
+    </div>
+
+    <!-- CDW -->
+    <div class="acad-block" data-aos="fade-up" data-aos-duration="1000">
+      <h2>Career Developement Webinar - entitled "Future-Proofing
+  Your Career: Skills for the Digital Age" 2024-2025</h2>
+  <div class="acad-photos">
+        <img src="images/9.jpg" alt="Career 1" onclick="openLightbox(this)">
+      </div>
+    </div>
+
+     <!-- SC -->
+    <div class="acad-block" data-aos="fade-up" data-aos-duration="1000">
+      <h2>STRATMARK CONFERENCE: Unveiling the Future of Marketing
+(2023)</h2>
+  <div class="acad-photos">
+        <img src="images/10.jpg" alt="Strat 1" onclick="openLightbox(this)">
+        <img src="images/11.jpg" alt="Strat 1" onclick="openLightbox(this)">
+      </div>
+    </div>
+
+     <!-- Webinar -->
+    <div class="acad-block" data-aos="fade-up" data-aos-duration="1000">
+      <h2>Participation in the Webinar entitled "Leadership and
+Management" (2021)</h2>
+  <div class="acad-photos">
+        <img src="images/12.jpg" alt="Strat 1" onclick="openLightbox(this)">
+        
+      </div>
+    </div>
+
+    
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="" alt="Full View">
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init({ offset: 0 });
+
+      const body = document.body;
+      const menuToggle = document.querySelector(".hamburg");
+      const menuClose = document.querySelector(".cancel");
+      const dropdown = document.querySelector(".dropdown");
+      const dropLinks = dropdown.querySelectorAll(".drop-link");
+
+      const openMenu = () => {
+        dropdown.classList.add("active");
+        body.classList.add("no-scroll");
+      };
+
+      const closeMenu = () => {
+        dropdown.classList.remove("active");
+        body.classList.remove("no-scroll");
+      };
+
+      menuToggle.addEventListener("click", openMenu);
+      menuClose.addEventListener("click", closeMenu);
+      dropLinks.forEach(link => link.addEventListener("click", closeMenu));
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape" && dropdown.classList.contains("active")) {
+          closeMenu();
+        }
+      });
+    });
+
+    // Lightbox
+    function openLightbox(img) {
+      document.getElementById("lightbox").style.display = "flex";
+      document.getElementById("lightbox-img").src = img.src;
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+</body>
+</html>
