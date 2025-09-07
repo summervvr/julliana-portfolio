@@ -32,8 +32,7 @@ a { color: inherit; text-decoration: none; }
 button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; }
 .no-scroll { overflow: hidden; } /* Prevent background scroll */
 
-/* navigation */
-/* ============ NAVBAR (Unified for all pages) ============ */
+/* ============ NAVBAR ============ */
 .site-nav {
   width: 100%;
   background: #fff;
@@ -65,10 +64,10 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
 
 .nav-link {
   font-weight: 500;
-  color: #333;
+  color: var(--clr-primary);
 }
 
-.nav-link.active { color: #0073e6; }
+.nav-link.active { color: var(--clr-accent); }
 
 .hamburg {
   font-size: 1.5rem;
@@ -103,7 +102,7 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
 
 .dropdown a {
   font-size: 1.2rem;
-  color: #333;
+  color: var(--clr-primary);
   font-weight: 600;
   text-decoration: none;
 }
@@ -113,9 +112,6 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
   .links { display: none; }
   .hamburg { display: block; }
 }
-
-
-
 
 .dropdown-inner {
   width: min(92vw, 520px);
@@ -270,19 +266,19 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
 .shopfest-content h1 {
   font-size: 2.8rem;
   margin-bottom: 15px;
-  color: #2b6777;
-  text-shadow: 0 0 10px rgba(43,103,119,0.2);
+  color: var(--clr-primary);
+  text-shadow: 0 0 10px rgba(74,50,103,0.15);
 }
 .shopfest-content h3 {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #002643;
+  color: var(--clr-accent);
 }
 .shopfest-content p {
   margin-bottom: 15px;
   line-height: 1.7;
   font-size: 1.1rem;
-  color: #17444c;
+  color: var(--clr-text);
 }
 
 /* Shopfest Photos */
@@ -299,12 +295,12 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
   height: 250px;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgb(0, 35, 49);
+  box-shadow: 0 4px 12px rgba(74,50,103,0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .shopfest-photos img:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(82,171,152,0.3);
+  box-shadow: 0 8px 20px rgba(74,50,103,0.3);
 }
 
 /* Lightbox (shared) */
@@ -334,7 +330,7 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
   cursor: pointer;
   transition: 0.3s;
 }
-.lightbox .close:hover { color: #f1c40f; }
+.lightbox .close:hover { color: var(--clr-accent); }
 @keyframes zoomIn {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
@@ -353,33 +349,33 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
   font-size: 2.8rem;
   margin-bottom: 40px;
   text-align: center;
-  color: #2b6777;
+  color: var(--clr-primary);
 }
 .selling-content { text-align: center; }
 .selling-content h3 {
   font-size: 1.8rem;
   margin-bottom: 10px;
-  color: #2b6777;
+  color: var(--clr-primary);
 }
 .selling-content h4 {
   font-size: 1.3rem;
   margin-bottom: 15px;
-  color: #52ab98;
+  color: var(--clr-accent);
 }
 .selling-content p {
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 20px;
-  color: #2b6777;
+  color: var(--clr-text);
 }
 .selling-quote {
   font-size: 1.2rem;
   font-style: italic;
-  background: #c8d8e4;
+  background: var(--clr-rose-50);
   padding: 20px;
   border-radius: 8px;
-  color: #2b6777;
-  border-left: 4px solid #52ab98;
+  color: var(--clr-primary);
+  border-left: 4px solid var(--clr-lavender);
 }
 .selling-gallery {
   display: grid;
@@ -402,26 +398,25 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
 }
 .selling-gallery .gallery-item:hover { transform: scale(1.05); }
 
-
 /* ============ ACADEMIC ACHIEVEMENTS SECTION ============ */
 .acad-section {
   padding: 60px 20px;
   text-align: center;
   background-color: transparent;
-  color: #2b6777;
+  color: var(--clr-text);
 }
 
 .acad-section .section-title {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #2b6777;
+  color: var(--clr-primary);
 }
 
 .acad-intro {
   font-size: 1.1rem;
   margin: 0 auto 40px;
   max-width: 800px;
-  color: #2b6777;
+  color: var(--clr-text);
   text-align: center;
 }
 
@@ -430,8 +425,8 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
 .acad-block h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #52ab98;
-  text-shadow: 0 0 5px rgba(82,171,152,0.2);
+  color: var(--clr-accent);
+  text-shadow: 0 0 5px rgba(222,99,138,0.2);
 }
 
 .acad-list {
@@ -440,10 +435,10 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
   max-width: 800px;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #2b6777;
+  color: var(--clr-text);
 }
 .acad-list li { margin-bottom: 12px; }
-.acad-list strong { color: #52ab98; }
+.acad-list strong { color: var(--clr-primary); }
 
 .acad-photos {
   display: grid;
@@ -458,22 +453,21 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
   height: 250px;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(74,50,103,0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 .acad-photos img:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(82,171,152,0.3);
+  box-shadow: 0 8px 20px rgba(74,50,103,0.3);
 }
 
 .acad-divider {
   margin: 50px auto;
   width: 60%;
   border: none;
-  border-top: 2px dashed #52ab98;
+  border-top: 2px dashed var(--clr-lavender);
 }
-
 
 /* ============ CERTIFICATES ============ */
 .certificates-section {
@@ -484,7 +478,7 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
 .certificates-section .section-title {
   font-size: 2.5rem;
   margin-bottom: 40px;
-  color: #2b6777;
+  color: var(--clr-primary);
 }
 .certificates-gallery {
   display: grid;
@@ -498,7 +492,7 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
   cursor: pointer;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(74,50,103,0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .certificates-item img {
@@ -510,12 +504,12 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
 }
 .certificates-item:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(74,50,103,0.25);
 }
 .certificates-item .overlay {
   position: absolute;
   inset: 0;
-  background: #2b6777;
+  background: var(--clr-primary);
   opacity: 0;
   display: flex;
   justify-content: center;
